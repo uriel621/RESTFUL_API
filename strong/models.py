@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 class Project(models.Model):
     type_of_project = models.CharField(max_length=200)
     description = models.CharField(max_length=400)
@@ -10,19 +9,20 @@ class Project(models.Model):
         return self.type_of_project
 
 def get_image_filename(instance, filename):
-    print('----> ', instance.project)
-    print('INSTANCE----> ', instance.project)
-    print('FILENAME----> ', filename)
-    return "{}/{}".format(instance.project, filename)  
+    return "strong/{}/{}".format(instance.project, filename)  
 
 def name_of_project(name):
     new_name = ''
+    counter = 0
     for letter in str(name):
         if letter == '/':
-            break
+            counter += 1
+            if counter == 2:
+                break
         else:
             new_name += letter
-    return "{}".format(new_name) 
+    new_name = new_name.replace('strong', '')
+    return "{} Images".format(new_name) 
 
 class Images(models.Model):  
     project = models.ForeignKey(Project, default=None)

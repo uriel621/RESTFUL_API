@@ -1,1 +1,17 @@
-{{ message }}
+{% if project_model %}
+    {% for project in project_model %}
+    <div>Projects Info</div>
+        <div>
+            type_of_project--> {{ project.type_of_project }}
+        </div>
+
+        <div>
+            description--> {{ project.description }}
+        </div>
+
+        {% for image in images_model %}
+        <div>{{ image.image }}</div>
+            <img height="200" width="200" src="images/{{ image.image }}" />
+        {% endfor %}   
+    {% endfor %}
+{% endif %}
