@@ -4,7 +4,7 @@ from strong import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'images621', views.strong)
+router.register(r'images', views.image_list)
 # router.register(r'images', views.images)
 
 urlpatterns = [
