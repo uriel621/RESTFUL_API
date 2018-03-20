@@ -25,7 +25,7 @@ def name_of_project(name):
     return "{} Images".format(new_name) 
 
 class Images(models.Model):  
-    project = models.ForeignKey(Project, default=None)
+    project = models.ForeignKey(Project, related_name="images")
     image = models.ImageField(upload_to=get_image_filename)
     def __str__(self):
         return name_of_project(self.image)

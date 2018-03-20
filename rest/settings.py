@@ -124,5 +124,5 @@ STATIC_URL = '/static/'
 
 # MEDIA
 MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
-# MEDIA_URL = '/strong/images/'
+# MEDIA_URL = '/media/'
+MEDIA_URL = '/strong/images/'
